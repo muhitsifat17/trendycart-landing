@@ -9,7 +9,7 @@ export default function Home() {
   const [showSlip, setShowSlip] = useState(false);
   const [orderInfo, setOrderInfo] = useState<any>(null);
 
-  // ৩টি আলাদা ক্যাটাগরিতে সব প্রোডাক্ট
+  // ৩টি আলাদা ক্যাটাগরিতে সব প্রোডাক্টের তালিকা
   const productCategories = [
     {
       name: 'Anime LED Signs',
@@ -27,6 +27,7 @@ export default function Home() {
         { id: 6, name: 'Full Moon Lamp', img: '/fullmoon.jpg', price: 1099 },
         { id: 7, name: 'Half Moon Crystal', img: '/halfmoon.webp', price: 999 },
         { id: 8, name: 'Crystal Table Lamp', img: '/crystallamp.jpg', price: 1099 },
+        { id: 13, name: 'Galaxy Crystal Ball', img: '/lamp.webp', price: 1299 }, 
       ],
     },
     {
@@ -35,17 +36,18 @@ export default function Home() {
         { id: 9, name: 'Cute Panda Light', img: '/panda.webp', price: 299 },
         { id: 10, name: 'Mushroom Light', img: '/mashroom.jpg', price: 299 },
         { id: 11, name: 'Tree Fairy Light', img: '/tree.jpg', price: 1099 },
-        { id: 12, name: 'Baby Toy Projector', img: '/babylamp.webp', price: 1799 },
+        { id: 12, name: 'Dreamy Galaxy Projector', img: '/babylamp.webp', price: 1799 },
       ],
     },
   ];
 
   const deliveryCharge = deliveryArea === 'dhaka' ? 70 : 120;
   const totalPrice = selectedProduct ? selectedProduct.price + deliveryCharge : 0;
+  const whatsappNumber = "8801601342114"; // আপনার নম্বর
 
   const handleOrder = async (e: any) => {
     e.preventDefault();
-    if (!selectedProduct) return alert("প্রোডাক্ট সিলেক্ট করুন!");
+    if (!selectedProduct) return alert("দয়া করে একটি প্রোডাক্ট সিলেক্ট করুন!");
     setLoading(true);
     const orderData = {
       Name: e.target.name.value,
@@ -75,7 +77,7 @@ export default function Home() {
 
   if (showSlip) {
     return (
-      <main className="min-h-screen bg-black flex items-center justify-center p-6 text-white font-sans relative">
+      <main className="min-h-screen bg-black flex items-center justify-center p-6 text-white font-sans relative overflow-hidden">
         <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[40vh] opacity-10 pointer-events-none" />
         <div className="bg-zinc-900 p-8 rounded-3xl border border-orange-500 w-full max-w-md shadow-2xl relative z-10 text-center">
           <img src="/logo.jpg" className="h-20 mx-auto mb-6 rounded-full border-2 border-orange-500" />
@@ -86,6 +88,7 @@ export default function Home() {
             <p><strong>মোট:</strong> ৳ {orderInfo.Total}</p>
           </div>
           <button onClick={() => window.print()} className="w-full mt-6 bg-orange-600 py-3 rounded-xl font-bold">স্লিপ ডাউনলোড করুন</button>
+          <button onClick={() => setShowSlip(false)} className="w-full mt-2 text-sm text-zinc-500">হোমে ফিরে যান</button>
         </div>
       </main>
     );
@@ -93,10 +96,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white font-sans relative overflow-hidden selection:bg-orange-500">
-      <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[120vh] opacity-5 pointer-events-none" />
+      <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[120vh] opacity-5 pointer-events-none z-0" />
 
       <header className="py-24 text-center border-b border-zinc-900 bg-zinc-950/50 relative z-10">
-        <img src="/logo.jpg" className="h-40 w-40 mx-auto rounded-full border-4 border-orange-600 shadow-2xl mb-6" />
+        <img src="/logo.jpg" className="h-40 w-40 mx-auto rounded-full border-4 border-orange-600 shadow-2xl mb-6 object-cover" />
         <h1 className="text-4xl font-black uppercase tracking-tighter">TrendyCart BD</h1>
         <p className="text-lg text-zinc-400 mt-2">আপনার সেটআপকে দিন এক প্রিমিয়াম ভাইব! ⚡</p>
       </header>
@@ -109,9 +112,9 @@ export default function Home() {
               {cat.products.map((p) => (
                 <div key={p.id} onClick={() => setSelectedProduct(p)} className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105' : 'border-zinc-800'}`}>
                   <div className="aspect-square rounded-2xl overflow-hidden bg-black mb-4">
-                    <img src={p.img} className="w-full h-full object-contain p-2" />
+                    <img src={p.img} className="w-full h-full object-contain p-2" alt={p.name} />
                   </div>
-                  <h3 className="font-bold text-center h-12 flex items-center justify-center">{p.name}</h3>
+                  <h3 className="font-bold text-center h-12 flex items-center justify-center text-sm md:text-base">{p.name}</h3>
                   <p className="text-orange-500 text-center font-black text-xl">৳ {p.price}</p>
                 </div>
               ))}
@@ -125,18 +128,36 @@ export default function Home() {
           <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[50vh] opacity-10 pointer-events-none" />
           <h2 className="text-3xl font-black text-center mb-8 relative z-10">চেকআউট 🛒</h2>
           <form onSubmit={handleOrder} className="space-y-6 relative z-10">
-            <input name="name" type="text" placeholder="পুরো নাম" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 outline-none focus:border-orange-500" required />
-            <input name="phone" type="tel" placeholder="ফোন নম্বর" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 outline-none focus:border-orange-500" required />
-            <textarea name="address" placeholder="বিস্তারিত ঠিকানা" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 h-32 outline-none focus:border-orange-500" required></textarea>
+            <input name="name" type="text" placeholder="পুরো নাম" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 outline-none focus:border-orange-500 transition-all" required />
+            <input name="phone" type="tel" placeholder="ফোন নম্বর" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 outline-none focus:border-orange-500 transition-all" required />
+            <textarea name="address" placeholder="বিস্তারিত ঠিকানা" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 h-32 outline-none focus:border-orange-500 transition-all" required></textarea>
+            
             <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 flex gap-4">
-              <label className="flex-1 flex items-center gap-2 cursor-pointer"><input type="radio" checked={deliveryArea === 'dhaka'} onChange={() => setDeliveryArea('dhaka')} className="accent-orange-500" /> ঢাকার মধ্যে</label>
-              <label className="flex-1 flex items-center gap-2 cursor-pointer"><input type="radio" checked={deliveryArea === 'outside'} onChange={() => setDeliveryArea('outside')} className="accent-orange-500" /> ঢাকার বাইরে</label>
+              <label className="flex-1 flex items-center gap-2 cursor-pointer font-bold transition-colors hover:text-orange-500">
+                <input type="radio" checked={deliveryArea === 'dhaka'} onChange={() => setDeliveryArea('dhaka')} className="accent-orange-500 w-5 h-5" /> ঢাকার মধ্যে
+              </label>
+              <label className="flex-1 flex items-center gap-2 cursor-pointer font-bold transition-colors hover:text-orange-500">
+                <input type="radio" checked={deliveryArea === 'outside'} onChange={() => setDeliveryArea('outside')} className="accent-orange-500 w-5 h-5" /> ঢাকার বাইরে
+              </label>
             </div>
-            {selectedProduct && <div className="p-6 bg-zinc-900 rounded-2xl border border-zinc-800 font-bold text-2xl text-orange-500 flex justify-between"><span>মোট:</span><span>৳{totalPrice}</span></div>}
-            <button type="submit" disabled={loading || !selectedProduct} className="w-full bg-orange-600 py-5 rounded-2xl font-black text-xl hover:bg-orange-700">অর্ডার কনফার্ম করুন</button>
+
+            {selectedProduct && (
+              <div className="p-6 bg-orange-600/10 rounded-2xl border border-orange-500/20 text-center">
+                <p className="text-sm text-zinc-400 mb-1">মোট পরিশোধযোগ্য টাকা:</p>
+                <p className="text-3xl font-black text-orange-500">৳ {totalPrice}</p>
+              </div>
+            )}
+
+            <button type="submit" disabled={loading || !selectedProduct} className="w-full bg-orange-600 py-5 rounded-2xl font-black text-xl hover:bg-orange-700 transition-all shadow-lg shadow-orange-600/20 disabled:bg-zinc-800">
+              {loading ? 'প্রসেস হচ্ছে...' : 'অর্ডার কনফার্ম করুন'}
+            </button>
           </form>
         </div>
       </section>
+
+      <footer className="py-12 text-center text-zinc-600 border-t border-zinc-900">
+        <p>© 2026 TrendyCart BD - Premium Decor</p>
+      </footer>
     </main>
   );
 }
