@@ -44,7 +44,7 @@ export default function Home() {
   const deliveryCharge = deliveryArea === 'dhaka' ? 70 : 120;
   const totalPrice = selectedProduct ? selectedProduct.price + deliveryCharge : 0;
 
-  const whatsappNumber = "8801700000000"; // <--- আপনার নম্বরটি এখানে দিন
+  const whatsappNumber = "8801601342114"; // <--- আপনার নম্বরটি এখানে দিন
 
   const handleOrder = async (e: any) => {
     e.preventDefault();
