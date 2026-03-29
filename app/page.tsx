@@ -22,7 +22,7 @@ export default function Home() {
   const totalPrice = selectedProduct ? selectedProduct.price + deliveryCharge : 0;
 
   // আপনার হোয়াটসঅ্যাপ নম্বর এখানে দিন (বিনা জিরো ও কান্ট্রি কোড সহ)
-  const whatsappNumber = "8801700000000"; // <--- এখানে আপনার নম্বরটি দিন
+  const whatsappNumber = "8801601342114"; // <--- এখানে আপনার নম্বরটি দিন
 
   // অর্ডার হ্যান্ডেল করার ফাংশন
   const handleOrder = async (e: any) => {
