@@ -9,12 +9,17 @@ export default function Home() {
   const [showSlip, setShowSlip] = useState(false);
   const [orderInfo, setOrderInfo] = useState<any>(null);
 
-  // আপনার ৪টি প্রোডাক্টের লিস্ট
+  // আপনার সমস্ত প্রোডাক্টের লিস্ট (ছবি ও প্রাইস সহ)
   const products = [
-    { id: 1, name: 'Sukuna LED Sign', img: '/GWPS7RvojNjsIRXUGBKDdKaNgU9s51p1Cwx3hnAP (1).png', price: 850 },
-    { id: 2, name: 'Dragon LED Sign', img: '/jAKEos7Bhunnx80AY9eE5lCLXkztmWOkSNckyhhq.png', price: 950 },
-    { id: 3, name: 'Goku LED Sign', img: '/jNAjYvdEOwrZ6SogQwEIWRlfJoKzPUxxThkTGtrK.png', price: 850 },
-    { id: 4, name: 'Spider-Man LED Sign', img: '/dSq5UUDzXFa8PQLePJa9s5CJDJ5M61SM2sHa1f1n.png', price: 900 },
+    { id: 1, name: 'Sukuna LED Sign', img: '/ccBxlmIe7xZsfkU4T2iL2yFqq5oFvIxR7DWu8MtH.jpg', price: 1199 },
+    { id: 2, name: 'Spider-Man LED Sign', img: '/EikmxREadPKbGDI7DNXb7biI2HicAs91Gd6k7g5W.jpg', price: 1149 },
+    { id: 3, name: 'Goku LED Sign', img: '/5lyQEW7JHQWTSo0mjLh6vLMMKJwjGYg65s4Sqodr.webp', price: 1149 },
+    { id: 4, name: 'Dragon LED Sign', img: '/B2dSKJL5PntKuXisk854kkDEAEQaDU6wv2L4zHmG.jpg', price: 1099 },
+    { id: 5, name: 'Moon Lamp', img: '/1RclcoQw0OUnum3ZAhYS6l70pKl8Rr07IXvMbEZo.webp', price: 999 },
+    { id: 6, name: 'Mushroom Light', img: '/WnCdYSadFd9iK1kXqT6mbiCX5BU6ycXYT9NXQaDw.jpg', price: 299 },
+    { id: 7, name: 'Panda Night Light', img: '/8U6cZO8h2AKtYofNyq4UG1BNCZeDzYk6T5UgXnqJ.jpg', price: 299 },
+    { id: 8, name: 'Decorative Bulb', img: '/9hGJGq5PIzlsOvyjTxem6yGcHz4tqGdBDgmfW3oa.jpg', price: 999 },
+    { id: 9, name: 'Batman LED Sign', img: '/ZzlcDaveZgfdk5d7jH1wOx3evPtO6HJFQl7YZ0bE.jpg', price: 1199 },
   ];
 
   // ডেলিভারি চার্জ ক্যালকুলেশন
@@ -22,7 +27,7 @@ export default function Home() {
   const totalPrice = selectedProduct ? selectedProduct.price + deliveryCharge : 0;
 
   // আপনার হোয়াটসঅ্যাপ নম্বর এখানে দিন (বিনা জিরো ও কান্ট্রি কোড সহ)
-  const whatsappNumber = "8801601342114"; // <--- এখানে আপনার নম্বরটি দিন
+  const whatsappNumber = "8801700000000"; // <--- আপনার নম্বরটি বসান
 
   // অর্ডার হ্যান্ডেল করার ফাংশন
   const handleOrder = async (e: any) => {
@@ -65,7 +70,7 @@ export default function Home() {
     return (
       <main className="min-h-screen bg-black flex items-center justify-center p-6 text-white font-sans">
         <div className="bg-zinc-900 p-8 rounded-3xl border border-orange-500 w-full max-w-md shadow-2xl">
-          <h1 className="text-3xl font-black text-orange-500 text-center mb-6">TrendyCart BD</h1>
+          <img src="/ideogram-v3.0_A_modern_minimalist_logo_for_an_e-commerce_brand_named_TrendyCart_BD_._The_logo_-0 (1).jpg" alt="TechnoCart" className="h-12 mx-auto mb-6" />
           <div className="border-b border-zinc-800 pb-4 mb-4">
             <p className="text-zinc-400 text-sm">অর্ডার স্লিপ</p>
             <p className="text-xl font-bold text-green-400">অর্ডার সফল হয়েছে! ✅</p>
@@ -87,7 +92,7 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white font-sans selection:bg-orange-500 scroll-smooth">
       {/* WhatsApp Floating Button */}
       <a 
-        href={`https://wa.me/${whatsappNumber}?text=হ্যালো, আমি TrendyCart BD থেকে একটি এলইডি সাইন নিয়ে কথা বলতে চাই!`}
+        href={`https://wa.me/${whatsappNumber}?text=হ্যালো, আমি TechnoCart থেকে একটি প্রোডাক্ট নিয়ে কথা বলতে চাই!`}
         target="_blank"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] p-4 rounded-full shadow-2xl hover:scale-110 transition active:scale-95 border-2 border-white/10"
       >
@@ -98,17 +103,17 @@ export default function Home() {
 
       {/* Hero Section */}
       <header className="py-20 text-center bg-zinc-900/30 border-b border-zinc-800">
-        <h1 className="text-6xl font-black text-orange-500 mb-4 tracking-tighter">TrendyCart BD</h1>
-        <p className="text-xl text-zinc-400">আপনার গেমিং সেটআপকে দিন এক প্রিমিয়াম ভাইব! ⚡</p>
+        <img src="/ideogram-v3.0_A_modern_minimalist_logo_for_an_e-commerce_brand_named_TrendyCart_BD_._The_logo_-0 (1).jpg" alt="TechnoCart" className="h-16 mx-auto mb-6" />
+        <p className="text-xl text-zinc-400">আপনার সেটআপকে দিন এক প্রিমিয়াম ভাইব! ⚡</p>
         <div className="mt-8">
           <a href="#products" className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-bold transition">অর্ডার শুরু করুন</a>
         </div>
       </header>
 
       {/* Product Selection */}
-      <section id="products" className="max-w-6xl mx-auto py-16 px-6">
+      <section id="products" className="max-w-7xl mx-auto py-16 px-6">
         <h2 className="text-3xl font-bold mb-10 text-center underline decoration-orange-500 decoration-4 underline-offset-8">পছন্দের প্রোডাক্ট সিলেক্ট করুন</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {products.map((p) => (
             <div 
               key={p.id} 
@@ -118,10 +123,10 @@ export default function Home() {
               <div className="relative aspect-square w-full mb-4 overflow-hidden rounded-2xl bg-black border border-zinc-800">
                 <img src={p.img} alt={p.name} className="w-full h-full object-contain p-2" />
               </div>
-              <p className="text-lg font-bold text-center mb-1">{p.name}</p>
+              <p className="text-base font-bold text-center mb-1 h-12 flex items-center justify-center">{p.name}</p>
               <p className="text-orange-400 text-center font-black">৳ {p.price}</p>
               {selectedProduct?.id === p.id && (
-                <div className="text-center mt-2 text-xs text-orange-500 font-bold uppercase tracking-wider">সিলেক্টেড ✅</div>
+                <div className="text-center mt-2 text-xs text-orange-500 font-bold uppercase tracking-wider bg-orange-500/10 py-1 rounded-full">সিলেক্টেড ✅</div>
               )}
             </div>
           ))}
@@ -185,8 +190,8 @@ export default function Home() {
       </section>
 
       <footer className="py-12 text-center text-zinc-600 border-t border-zinc-900 mt-10">
-        <p className="text-orange-500 font-bold mb-2 tracking-widest uppercase">TrendyCart BD</p>
-        <p>© 2026 Premium Anime LED Signs | Built by Sifat</p>
+        <img src="/ideogram-v3.0_A_modern_minimalist_logo_for_an_e-commerce_brand_named_TrendyCart_BD_._The_logo_-0 (1).jpg" alt="TechnoCart" className="h-10 mx-auto mb-2" />
+        <p>© 2026 Premium Decor Signs | All Rights Reserved</p>
       </footer>
     </main>
   );
