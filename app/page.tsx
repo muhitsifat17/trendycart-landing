@@ -9,7 +9,6 @@ export default function Home() {
   const [showSlip, setShowSlip] = useState(false);
   const [orderInfo, setOrderInfo] = useState<any>(null);
 
-  // ৩টি আলাদা ক্যাটাগরিতে সব প্রোডাক্টের তালিকা
   const productCategories = [
     {
       name: 'Anime LED Signs',
@@ -19,6 +18,17 @@ export default function Home() {
         { id: 3, name: 'Sukuna LED Sign', img: '/sukuna.jpg', price: 1199 },
         { id: 4, name: 'Spider-Man Sign', img: '/spiderman.png', price: 1149 },
         { id: 5, name: 'Goku LED Sign', img: '/goku.png', price: 1149 },
+      ],
+    },
+    {
+      name: 'Special Gift & Decor',
+      products: [
+        { id: 14, name: 'Love Pearl Box', img: '/Love Pearl Box Pink.jpg', price: 1250 },
+        { id: 15, name: 'Wooden Swiss Bank', img: '/Wooden Swiss Bank.jpg', price: 850 },
+        { id: 16, name: 'Medicine Storage Box', img: '/Medicine Storage Box 4 layer.png', price: 650 },
+        { id: 17, name: 'Heart Shaped Gift Box', img: '/Heart Shaped Gift Box.jpg', price: 950 },
+        { id: 18, name: 'Love Pearl Kit Set', img: '/love pearl kit Pearl Stone Locket Set.webp', price: 1150 },
+        { id: 19, name: 'Kaba Bank Money Box', img: '/Kaba Bank, Omrah Bank.webp', price: 750 },
       ],
     },
     {
@@ -43,11 +53,11 @@ export default function Home() {
 
   const deliveryCharge = deliveryArea === 'dhaka' ? 70 : 120;
   const totalPrice = selectedProduct ? selectedProduct.price + deliveryCharge : 0;
-  const whatsappNumber = "8801601342114"; // আপনার নম্বর
+  const whatsappNumber = "8801601342114";
 
   const handleOrder = async (e: any) => {
     e.preventDefault();
-    if (!selectedProduct) return alert("দয়া করে একটি প্রোডাক্ট সিলেক্ট করুন!");
+    if (!selectedProduct) return alert("দয়া করে একটি প্রোডাক্ট সিলেক্ট করুন!");
     setLoading(true);
     const orderData = {
       Name: e.target.name.value,
@@ -69,7 +79,7 @@ export default function Home() {
         setShowSlip(true);
       }
     } catch (error) {
-      alert("সমস্যা হয়েছে, আবার চেষ্টা করুন।");
+      alert("সমস্যা হয়েছে, আবার চেষ্টা করুন।");
     } finally {
       setLoading(false);
     }
@@ -81,7 +91,7 @@ export default function Home() {
         <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[40vh] opacity-10 pointer-events-none" />
         <div className="bg-zinc-900 p-8 rounded-3xl border border-orange-500 w-full max-w-md shadow-2xl relative z-10 text-center">
           <img src="/logo.jpg" className="h-20 mx-auto mb-6 rounded-full border-2 border-orange-500" />
-          <h2 className="text-xl font-bold text-green-400 mb-4">অর্ডার সফল হয়েছে! ✅</h2>
+          <h2 className="text-xl font-bold text-green-400 mb-4">অর্ডার সফল হয়েছে! ✅</h2>
           <div className="text-left space-y-2 text-zinc-300">
             <p><strong>নাম:</strong> {orderInfo.Name}</p>
             <p><strong>প্রোডাক্ট:</strong> {orderInfo.Product}</p>
@@ -110,7 +120,15 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-orange-500 mb-10 border-l-8 border-orange-600 pl-4">{cat.name}</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
               {cat.products.map((p) => (
-                <div key={p.id} onClick={() => setSelectedProduct(p)} className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105' : 'border-zinc-800'}`}>
+                <div 
+                  key={p.id} 
+                  onClick={() => {
+                    setSelectedProduct(p);
+                    // অটোমেটিক চেকআউট সেকশনে স্ক্রল করবে
+                    document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' });
+                  }} 
+                  className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105' : 'border-zinc-800'}`}
+                >
                   <div className="aspect-square rounded-2xl overflow-hidden bg-black mb-4">
                     <img src={p.img} className="w-full h-full object-contain p-2" alt={p.name} />
                   </div>
@@ -123,7 +141,8 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="bg-zinc-900/50 py-20 px-6 relative z-10">
+      {/* আইডি যুক্ত করা হয়েছে স্ক্রল কাজ করার জন্য */}
+      <section id="checkout" className="bg-zinc-900/50 py-20 px-6 relative z-10">
         <div className="max-w-xl mx-auto bg-black p-10 rounded-[40px] border border-zinc-800 shadow-2xl relative">
           <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[50vh] opacity-10 pointer-events-none" />
           <h2 className="text-3xl font-black text-center mb-8 relative z-10">চেকআউট 🛒</h2>
@@ -143,8 +162,9 @@ export default function Home() {
 
             {selectedProduct && (
               <div className="p-6 bg-orange-600/10 rounded-2xl border border-orange-500/20 text-center">
-                <p className="text-sm text-zinc-400 mb-1">মোট পরিশোধযোগ্য টাকা:</p>
+                <p className="text-sm text-zinc-400 mb-1">প্রোডাক্ট: {selectedProduct.name}</p>
                 <p className="text-3xl font-black text-orange-500">৳ {totalPrice}</p>
+                <p className="text-xs text-zinc-500 mt-1">( ডেলিভারি চার্জ সহ )</p>
               </div>
             )}
 
@@ -158,6 +178,15 @@ export default function Home() {
       <footer className="py-12 text-center text-zinc-600 border-t border-zinc-900">
         <p>© 2026 TrendyCart BD - Premium Decor</p>
       </footer>
+
+      {/* WhatsApp Floating Button */}
+      <a 
+        href={`https://wa.me/${whatsappNumber}`} 
+        target="_blank" 
+        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition-transform"
+      >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-8 h-8" alt="WhatsApp" />
+      </a>
     </main>
   );
 }
