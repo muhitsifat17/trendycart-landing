@@ -9,7 +9,19 @@ export default function Home() {
   const [showSlip, setShowSlip] = useState(false);
   const [orderInfo, setOrderInfo] = useState<any>(null);
 
+  // প্রোডাক্ট ক্যাটাগরি ও আপডেট করা দাম (স্ক্রিনশট থেকে ১০০ টাকা বেশি)
   const productCategories = [
+    {
+      name: 'Special Gift & Decor',
+      products: [
+        { id: 14, name: 'Heart Shaped Gift Box', img: '/Heart Shaped Gift Box.jpg', price: 270 },
+        { id: 15, name: 'Love Pearl Kit Set', img: '/love pearl kit Pearl Stone Locket Set.webp', price: 480 },
+        { id: 16, name: 'Love Pearl Box Pink', img: '/Love Pearl Box Pink.jpg', price: 720 },
+        { id: 17, name: 'Wooden Swiss Bank', img: '/Wooden Swiss Bank.jpg', price: 499 },
+        { id: 18, name: 'Medicine Storage Box', img: '/Medicine Storage Box 4 layer.png', price: 550 },
+        { id: 19, name: 'Kaba Bank Money Box', img: '/Kaba Bank, Omrah Bank.webp', price: 570 },
+      ],
+    },
     {
       name: 'Anime LED Signs',
       products: [
@@ -18,17 +30,6 @@ export default function Home() {
         { id: 3, name: 'Sukuna LED Sign', img: '/sukuna.jpg', price: 1199 },
         { id: 4, name: 'Spider-Man Sign', img: '/spiderman.png', price: 1149 },
         { id: 5, name: 'Goku LED Sign', img: '/goku.png', price: 1149 },
-      ],
-    },
-    {
-      name: 'Special Gift & Decor',
-      products: [
-        { id: 14, name: 'Love Pearl Box', img: '/Love Pearl Box Pink.jpg', price: 1250 },
-        { id: 15, name: 'Wooden Swiss Bank', img: '/Wooden Swiss Bank.jpg', price: 850 },
-        { id: 16, name: 'Medicine Storage Box', img: '/Medicine Storage Box 4 layer.png', price: 650 },
-        { id: 17, name: 'Heart Shaped Gift Box', img: '/Heart Shaped Gift Box.jpg', price: 950 },
-        { id: 18, name: 'Love Pearl Kit Set', img: '/love pearl kit Pearl Stone Locket Set.webp', price: 1150 },
-        { id: 19, name: 'Kaba Bank Money Box', img: '/Kaba Bank, Omrah Bank.webp', price: 750 },
       ],
     },
     {
@@ -124,7 +125,6 @@ export default function Home() {
                   key={p.id} 
                   onClick={() => {
                     setSelectedProduct(p);
-                    // অটোমেটিক চেকআউট সেকশনে স্ক্রল করবে
                     document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' });
                   }} 
                   className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105' : 'border-zinc-800'}`}
@@ -141,7 +141,6 @@ export default function Home() {
         ))}
       </section>
 
-      {/* আইডি যুক্ত করা হয়েছে স্ক্রল কাজ করার জন্য */}
       <section id="checkout" className="bg-zinc-900/50 py-20 px-6 relative z-10">
         <div className="max-w-xl mx-auto bg-black p-10 rounded-[40px] border border-zinc-800 shadow-2xl relative">
           <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[50vh] opacity-10 pointer-events-none" />
@@ -162,7 +161,7 @@ export default function Home() {
 
             {selectedProduct && (
               <div className="p-6 bg-orange-600/10 rounded-2xl border border-orange-500/20 text-center">
-                <p className="text-sm text-zinc-400 mb-1">প্রোডাক্ট: {selectedProduct.name}</p>
+                <p className="text-sm text-zinc-400 mb-1">মোট পরিশোধযোগ্য টাকা:</p>
                 <p className="text-3xl font-black text-orange-500">৳ {totalPrice}</p>
                 <p className="text-xs text-zinc-500 mt-1">( ডেলিভারি চার্জ সহ )</p>
               </div>
