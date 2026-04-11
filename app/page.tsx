@@ -9,25 +9,30 @@ export default function Home() {
   const [showSlip, setShowSlip] = useState(false);
   const [orderInfo, setOrderInfo] = useState<any>(null);
 
-  // আপনার স্ক্রিনশট থেকে শনাক্ত করা নতুন নাম ও দাম অনুযায়ী আপডেট করা ডাটা
+  // আপনার স্ক্রিনশট অনুযায়ী ১৭টি গ্যাজেট এবং দাম
   const productCategories = [
     {
       name: 'Premium Gadgets',
       products: [
-        { id: 20, name: '6 Fit Tripod Stand + 10″ Ring Light', img: '/tripod_ringlight.jpg', price: 1150 },
-        { id: 21, name: 'Air Humidifier Mini Night Light', img: '/vase_humidifier.jpg', price: 700 },
-        { id: 22, name: 'Handheld Portable Desktop Fan', img: '/flower_fan.jpg', price: 450 },
-        { id: 23, name: 'Anti Snoring Air Purifier Device', img: '/snoring_device.jpg', price: 300 },
-        { id: 24, name: 'K8 Wireless Microphone', img: '/k8_mic.jpg', price: 499 },
-        { id: 25, name: 'LED Thermal Flask Indicator', img: '/temp_flask.jpg', price: 850 },
-        { id: 26, name: 'Bladeless Neck Fan', img: '/neck_fan.jpg', price: 550 },
-        { id: 27, name: 'Aluminum Foldable Laptop Stand', img: '/laptop_stand.jpg', price: 600 },
-        { id: 28, name: 'BOYA BY-MW3 Wireless Mic', img: '/boya_mic.jpg', price: 499 },
-        { id: 29, name: 'Rechargeable Mini Fan', img: '/mini_fan.jpg', price: 450 },
-        { id: 30, name: 'Anti Mosquito Killer Lamp', img: '/mosquito_lamp.jpg', price: 550 },
-        { id: 31, name: 'Cute Panda Humidifier', img: '/panda_humidifier.jpg', price: 650 },
-        { id: 32, name: 'Nano Mist Sprayer', img: '/mist_sprayer.jpg', price: 250 },
-        { id: 33, name: 'Magic Bulb Humidifier', img: '/bulb_humidifier.jpg', price: 750 },
+        { id: 20, name: '3D Firework Led Bulb', img: '/3D Firework Led Decorative Light Bulb550tk.jpg', price: 550 },
+        { id: 21, name: '6 Fit Tripod Stand + 10″ Ring Light', img: '/6 Fit Tripod Stand +10″ Ring Light 1150.jpg', price: 1150 },
+        { id: 22, name: 'Bladeless Neck Fan', img: '/Bladeless Neck Fan 550tk.jpg', price: 550 },
+        { id: 23, name: 'Bulb Humidifier Lamp', img: '/Bulb Humidifier Lamp Shade550tk.png', price: 550 },
+        { id: 24, name: 'Car Home Humidifier USB', img: '/Car Home Humidifier USB Fine Spray 8435 750tk.jpg', price: 750 },
+        { id: 25, name: 'Handheld Portable Desktop Fan', img: '/Handheld Portable Desktop Table450tk.jpg', price: 450 },
+        { id: 26, name: 'Anti Snoring Air Purifier Device', img: '/High Quality 2 in 1 Sleeping Anti Snoring Air Purifier Device 300.jpg', price: 300 },
+        { id: 27, name: 'K8 Wireless Microphone', img: '/K8 Wireless Microphone 499tk.jpg', price: 499 },
+        { id: 28, name: 'LED Thermal Flask Indicator', img: '/LED Thermal Flask with Temperature Indicator Stainless Steel Flask .jpg', price: 850 },
+        { id: 29, name: 'Mini Air Humidifier Aroma', img: '/Mini Air Humidifier Aroma Essential Oil Diffuser 250TK Lamp.png', price: 250 },
+        { id: 30, name: 'Notebook Stand Metal', img: '/Notebook Stand Foldable Laptop Stand Metal 500. jpg', price: 500 },
+        { id: 31, name: 'Panda Humidifier', img: '/panda humidifier 350tk.png', price: 350 },
+        { id: 32, name: 'Stylish Mini Umbrella', img: '/Stylish mini Umbrella 900TK. jpg', price: 900 },
+        { id: 33, name: 'USB Mosquito Killer Lamp', img: '/USB Mosquito Killer Lamp 599tk.jpg', price: 599 },
+        { id: 34, name: 'Boya Wireless Mic Box', img: '/FB_IMG_1729532597687.jpg', price: 499 },
+        // নিচের ৩টি ফাইলের নাম স্ক্রিনশটে অসম্পূর্ণ ছিল, এগুলো চেক করে ঠিক করে নিন:
+        { id: 35, name: '3-in-1 Speaker Stand', img: '/3-in-1 Bluetooth Speaker Phone Stand with Pow....jpg', price: 1250 },
+        { id: 36, name: 'Air Humidifier Mini Night Light', img: '/Air Humidifier Mini Night Light Portable Mist S....jpg', price: 700 },
+        { id: 37, name: 'Awei P5K Powerbank', img: '/Awei P5K 10000mAh Large Capacity Smart ....jpg', price: 850 },
       ],
     },
     {
@@ -146,10 +151,10 @@ export default function Home() {
                     setSelectedProduct(p);
                     document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' });
                   }} 
-                  className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-orange-500/10 ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105' : 'border-zinc-800'}`}
+                  className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-orange-500/10 ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105 shadow-2xl shadow-orange-500/20' : 'border-zinc-800'}`}
                 >
                   <div className="aspect-square rounded-2xl overflow-hidden bg-black mb-4">
-                    <img src={p.img} className="w-full h-full object-contain p-2 transition-transform duration-500 hover:scale-110" alt={p.name} />
+                    <img src={p.img} className="w-full h-full object-contain p-2 hover:scale-110 transition-transform duration-500" alt={p.name} />
                   </div>
                   <h3 className="font-bold text-center h-12 flex items-center justify-center text-sm md:text-base leading-tight px-2">{p.name}</h3>
                   <p className="text-orange-500 text-center font-black text-xl mt-2">৳ {p.price}</p>
