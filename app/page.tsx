@@ -13,9 +13,12 @@ export default function Home() {
     {
       name: 'Premium Gadgets',
       products: [
-        { id: 20, name: '3D Firework Led Bulb', img: '/3D Firework Led Bulb.jpg', price: 550 },
-        { id: 21, name: '3-in-1 Speaker Stand', img: '/3-in-1 Speaker Stand.jpg', price: 1250 },
-        { id: 22, name: '6 Fit Tripod Stand + 10″ Ring Light', img: '/6 Fit Tripod Stand + 10″ Ring Light.jpg', price: 1150 },
+        // শুধু এই ৩টি ছবির নাম আপনার পছন্দমতো ছোট রাখা হলো
+        { id: 20, name: '3D Firework Led Bulb', img: '/bulb.jpg', price: 550 },
+        { id: 21, name: '3-in-1 Speaker Stand', img: '/speaker_stand.jpg', price: 1250 },
+        { id: 22, name: '6 Fit Tripod Stand + 10″ Ring Light', img: '/tripod.jpg', price: 1150 },
+        
+        // বাকিগুলো আপনার ফোল্ডারের রিনেম করা নাম অনুযায়ী হুবহু রাখা হয়েছে
         { id: 23, name: 'Air Humidifier Mini Night Light', img: '/Air Humidifier Mini Night Light.jpg', price: 700 },
         { id: 24, name: 'Awei P5K Powerbank', img: '/Awei P5K Powerbank.jpg', price: 850 },
         { id: 25, name: 'Bladeless Neck Fan', img: '/Bladeless Neck Fan.jpg', price: 550 },
@@ -120,7 +123,7 @@ export default function Home() {
             <p><strong>প্রোডাক্ট:</strong> {orderInfo.Product}</p>
             <p><strong>মোট:</strong> ৳ {orderInfo.Total}</p>
           </div>
-          <button onClick={() => window.print()} className="w-full mt-6 bg-orange-600 py-3 rounded-xl font-bold hover:bg-orange-700 transition-colors">স্লিপ ডাউনলোড করুন</button>
+          <button onClick={() => window.print()} className="w-full mt-6 bg-orange-600 py-3 rounded-xl font-bold hover:bg-orange-700 transition-all">স্লিপ ডাউনলোড করুন</button>
           <button onClick={() => setShowSlip(false)} className="w-full mt-2 text-sm text-zinc-500">হোমে ফিরে যান</button>
         </div>
       </main>
@@ -196,16 +199,11 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="py-12 text-center text-zinc-600 border-t border-zinc-900 bg-zinc-950/80">
+      <footer className="py-12 text-center text-zinc-600 border-t border-zinc-900">
         <p>© 2026 TrendyCart BD - Premium Decor & Gadgets</p>
       </footer>
 
-      {/* WhatsApp Floating Button */}
-      <a 
-        href={`https://wa.me/${whatsappNumber}`} 
-        target="_blank" 
-        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl z-50 hover:scale-110 active:scale-95 transition-transform"
-      >
+      <a href={`https://wa.me/${whatsappNumber}`} target="_blank" className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl z-50 hover:scale-110 active:scale-95 transition-transform">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-8 h-8" alt="WhatsApp" />
       </a>
     </main>
