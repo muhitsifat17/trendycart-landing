@@ -9,30 +9,28 @@ export default function Home() {
   const [showSlip, setShowSlip] = useState(false);
   const [orderInfo, setOrderInfo] = useState<any>(null);
 
-  // আপনার স্ক্রিনশট অনুযায়ী ১৭টি গ্যাজেট এবং দাম
   const productCategories = [
     {
       name: 'Premium Gadgets',
       products: [
-        { id: 20, name: '3D Firework Led Bulb', img: '/3D Firework Led Decorative Light Bulb550tk.jpg', price: 550 },
-        { id: 21, name: '6 Fit Tripod Stand + 10″ Ring Light', img: '/6 Fit Tripod Stand +10″ Ring Light 1150.jpg', price: 1150 },
-        { id: 22, name: 'Bladeless Neck Fan', img: '/Bladeless Neck Fan 550tk.jpg', price: 550 },
-        { id: 23, name: 'Bulb Humidifier Lamp', img: '/Bulb Humidifier Lamp Shade550tk.png', price: 550 },
-        { id: 24, name: 'Car Home Humidifier USB', img: '/Car Home Humidifier USB Fine Spray 8435 750tk.jpg', price: 750 },
-        { id: 25, name: 'Handheld Portable Desktop Fan', img: '/Handheld Portable Desktop Table450tk.jpg', price: 450 },
-        { id: 26, name: 'Anti Snoring Air Purifier Device', img: '/High Quality 2 in 1 Sleeping Anti Snoring Air Purifier Device 300.jpg', price: 300 },
-        { id: 27, name: 'K8 Wireless Microphone', img: '/K8 Wireless Microphone 499tk.jpg', price: 499 },
-        { id: 28, name: 'LED Thermal Flask Indicator', img: '/LED Thermal Flask with Temperature Indicator Stainless Steel Flask .jpg', price: 850 },
-        { id: 29, name: 'Mini Air Humidifier Aroma', img: '/Mini Air Humidifier Aroma Essential Oil Diffuser 250TK Lamp.png', price: 250 },
-        { id: 30, name: 'Notebook Stand Metal', img: '/Notebook Stand Foldable Laptop Stand Metal 500. jpg', price: 500 },
-        { id: 31, name: 'Panda Humidifier', img: '/panda humidifier 350tk.png', price: 350 },
-        { id: 32, name: 'Stylish Mini Umbrella', img: '/Stylish mini Umbrella 900TK. jpg', price: 900 },
-        { id: 33, name: 'USB Mosquito Killer Lamp', img: '/USB Mosquito Killer Lamp 599tk.jpg', price: 599 },
-        { id: 34, name: 'Boya Wireless Mic Box', img: '/FB_IMG_1729532597687.jpg', price: 499 },
-        // নিচের ৩টি ফাইলের নাম স্ক্রিনশটে অসম্পূর্ণ ছিল, এগুলো চেক করে ঠিক করে নিন:
-        { id: 35, name: '3-in-1 Speaker Stand', img: '/3-in-1 Bluetooth Speaker Phone Stand with Pow....jpg', price: 1250 },
-        { id: 36, name: 'Air Humidifier Mini Night Light', img: '/Air Humidifier Mini Night Light Portable Mist S....jpg', price: 700 },
-        { id: 37, name: 'Awei P5K Powerbank', img: '/Awei P5K 10000mAh Large Capacity Smart ....jpg', price: 850 },
+        { id: 20, name: '3D Firework Led Bulb', img: '/3D Firework Led Bulb.jpg', price: 550 },
+        { id: 21, name: '3-in-1 Speaker Stand', img: '/3-in-1 Speaker Stand.jpg', price: 1250 },
+        { id: 22, name: '6 Fit Tripod Stand + 10″ Ring Light', img: '/6 Fit Tripod Stand + 10″ Ring Light.jpg', price: 1150 },
+        { id: 23, name: 'Air Humidifier Mini Night Light', img: '/Air Humidifier Mini Night Light.jpg', price: 700 },
+        { id: 24, name: 'Awei P5K Powerbank', img: '/Awei P5K Powerbank.jpg', price: 850 },
+        { id: 25, name: 'Bladeless Neck Fan', img: '/Bladeless Neck Fan.jpg', price: 550 },
+        { id: 26, name: 'Boya Wireless Mic Box', img: '/Boya Wireless Mic Box.jpg', price: 499 },
+        { id: 27, name: 'Bulb Humidifier Lamp Shade', img: '/Bulb Humidifier Lamp Shade550tk.png', price: 550 },
+        { id: 28, name: 'Car Home Humidifier USB', img: '/Car Home Humidifier USB.jpg', price: 750 },
+        { id: 29, name: 'Handheld Portable Desktop Table', img: '/Handheld Portable Desktop Table450tk.jpg', price: 450 },
+        { id: 30, name: 'Anti Snoring Air Purifier Device', img: '/High Quality 2 in 1 Sleeping Anti Snoring Air Purifier Device 300.jpg', price: 300 },
+        { id: 31, name: 'LED Thermal Flask Indicator', img: '/LED Thermal Flask Indicator.jpg', price: 850 },
+        { id: 32, name: 'Mini Air Humidifier Aroma', img: '/Mini Air Humidifier Aroma Essential Oil Diffuser 250TK Lamp.png', price: 250 },
+        { id: 33, name: 'Notebook Stand Metal', img: '/Notebook Stand Metal.jpg', price: 500 },
+        { id: 34, name: 'Panda Humidifier', img: '/panda humidifier 350tk.png', price: 350 },
+        { id: 35, name: 'Stylish Mini Umbrella', img: '/Stylish Mini Umbrella.jpg', price: 900 },
+        { id: 36, name: 'USB Mosquito Killer Lamp', img: '/USB Mosquito Killer Lamp.jpg', price: 599 },
+        { id: 37, name: 'Boya M1 Mic Box', img: '/FB_IMG_1729532597687.jpg', price: 499 },
       ],
     },
     {
@@ -122,7 +120,7 @@ export default function Home() {
             <p><strong>প্রোডাক্ট:</strong> {orderInfo.Product}</p>
             <p><strong>মোট:</strong> ৳ {orderInfo.Total}</p>
           </div>
-          <button onClick={() => window.print()} className="w-full mt-6 bg-orange-600 py-3 rounded-xl font-bold">স্লিপ ডাউনলোড করুন</button>
+          <button onClick={() => window.print()} className="w-full mt-6 bg-orange-600 py-3 rounded-xl font-bold hover:bg-orange-700 transition-colors">স্লিপ ডাউনলোড করুন</button>
           <button onClick={() => setShowSlip(false)} className="w-full mt-2 text-sm text-zinc-500">হোমে ফিরে যান</button>
         </div>
       </main>
@@ -170,9 +168,9 @@ export default function Home() {
           <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[50vh] opacity-10 pointer-events-none" />
           <h2 className="text-3xl font-black text-center mb-8 relative z-10 text-orange-500">চেকআউট 🛒</h2>
           <form onSubmit={handleOrder} className="space-y-6 relative z-10">
-            <input name="name" type="text" placeholder="পুরো নাম" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 outline-none focus:border-orange-500 transition-all" required />
-            <input name="phone" type="tel" placeholder="ফোন নম্বর" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 outline-none focus:border-orange-500 transition-all" required />
-            <textarea name="address" placeholder="বিস্তারিত ঠিকানা (থানা ও জেলাসহ)" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 h-32 outline-none focus:border-orange-500 transition-all" required></textarea>
+            <input name="name" type="text" placeholder="পুরো নাম" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 outline-none focus:border-orange-500 transition-all text-white" required />
+            <input name="phone" type="tel" placeholder="ফোন নম্বর" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 outline-none focus:border-orange-500 transition-all text-white" required />
+            <textarea name="address" placeholder="বিস্তারিত ঠিকানা (থানা ও জেলাসহ)" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 h-32 outline-none focus:border-orange-500 transition-all text-white" required></textarea>
             
             <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 flex gap-4">
               <label className="flex-1 flex items-center gap-2 cursor-pointer font-bold transition-colors hover:text-orange-500">
@@ -184,7 +182,7 @@ export default function Home() {
             </div>
 
             {selectedProduct && (
-              <div className="p-6 bg-orange-600/10 rounded-2xl border border-orange-500/20 text-center">
+              <div className="p-6 bg-orange-600/10 rounded-2xl border border-orange-500/20 text-center animate-pulse">
                 <p className="text-sm text-zinc-400 mb-1">মোট পরিশোধযোগ্য টাকা:</p>
                 <p className="text-3xl font-black text-orange-500">৳ {totalPrice}</p>
                 <p className="text-xs text-zinc-500 mt-1">( ডেলিভারি চার্জ সহ )</p>
@@ -198,11 +196,16 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="py-12 text-center text-zinc-600 border-t border-zinc-900">
+      <footer className="py-12 text-center text-zinc-600 border-t border-zinc-900 bg-zinc-950/80">
         <p>© 2026 TrendyCart BD - Premium Decor & Gadgets</p>
       </footer>
 
-      <a href={`https://wa.me/${whatsappNumber}`} target="_blank" className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition-transform">
+      {/* WhatsApp Floating Button */}
+      <a 
+        href={`https://wa.me/${whatsappNumber}`} 
+        target="_blank" 
+        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl z-50 hover:scale-110 active:scale-95 transition-transform"
+      >
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-8 h-8" alt="WhatsApp" />
       </a>
     </main>
