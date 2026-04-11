@@ -13,12 +13,11 @@ export default function Home() {
     {
       name: 'Premium Gadgets',
       products: [
-        // শুধু এই ৩টি ছবির নাম আপনার পছন্দমতো ছোট রাখা হলো
+        // স্পিকার স্ট্যান্ড ডিলিট করা হয়েছে এবং প্রথম ২টি নাম ছোট রাখা হয়েছে
         { id: 20, name: '3D Firework Led Bulb', img: '/bulb.jpg', price: 550 },
-        { id: 21, name: '3-in-1 Speaker Stand', img: '/speaker_stand.jpg', price: 1250 },
         { id: 22, name: '6 Fit Tripod Stand + 10″ Ring Light', img: '/tripod.jpg', price: 1150 },
         
-        // বাকিগুলো আপনার ফোল্ডারের রিনেম করা নাম অনুযায়ী হুবহু রাখা হয়েছে
+        // বাকিগুলো আপনার ফোল্ডারের রিনেম করা নাম অনুযায়ী
         { id: 23, name: 'Air Humidifier Mini Night Light', img: '/Air Humidifier Mini Night Light.jpg', price: 700 },
         { id: 24, name: 'Awei P5K Powerbank', img: '/Awei P5K Powerbank.jpg', price: 850 },
         { id: 25, name: 'Bladeless Neck Fan', img: '/Bladeless Neck Fan.jpg', price: 550 },
@@ -199,7 +198,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="py-12 text-center text-zinc-600 border-t border-zinc-900">
+      <footer className="py-12 text-center text-zinc-600 border-t border-zinc-900 bg-zinc-950/80">
         <p>© 2026 TrendyCart BD - Premium Decor & Gadgets</p>
       </footer>
 
