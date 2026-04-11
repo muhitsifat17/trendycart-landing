@@ -9,8 +9,27 @@ export default function Home() {
   const [showSlip, setShowSlip] = useState(false);
   const [orderInfo, setOrderInfo] = useState<any>(null);
 
-  // প্রোডাক্ট ক্যাটাগরি ও আপডেট করা দাম (স্ক্রিনশট থেকে ১০০ টাকা বেশি)
+  // আপনার স্ক্রিনশট থেকে শনাক্ত করা নতুন নাম ও দাম অনুযায়ী আপডেট করা ডাটা
   const productCategories = [
+    {
+      name: 'Premium Gadgets',
+      products: [
+        { id: 20, name: '6 Fit Tripod Stand + 10″ Ring Light', img: '/tripod_ringlight.jpg', price: 1150 },
+        { id: 21, name: 'Air Humidifier Mini Night Light', img: '/vase_humidifier.jpg', price: 700 },
+        { id: 22, name: 'Handheld Portable Desktop Fan', img: '/flower_fan.jpg', price: 450 },
+        { id: 23, name: 'Anti Snoring Air Purifier Device', img: '/snoring_device.jpg', price: 300 },
+        { id: 24, name: 'K8 Wireless Microphone', img: '/k8_mic.jpg', price: 499 },
+        { id: 25, name: 'LED Thermal Flask Indicator', img: '/temp_flask.jpg', price: 850 },
+        { id: 26, name: 'Bladeless Neck Fan', img: '/neck_fan.jpg', price: 550 },
+        { id: 27, name: 'Aluminum Foldable Laptop Stand', img: '/laptop_stand.jpg', price: 600 },
+        { id: 28, name: 'BOYA BY-MW3 Wireless Mic', img: '/boya_mic.jpg', price: 499 },
+        { id: 29, name: 'Rechargeable Mini Fan', img: '/mini_fan.jpg', price: 450 },
+        { id: 30, name: 'Anti Mosquito Killer Lamp', img: '/mosquito_lamp.jpg', price: 550 },
+        { id: 31, name: 'Cute Panda Humidifier', img: '/panda_humidifier.jpg', price: 650 },
+        { id: 32, name: 'Nano Mist Sprayer', img: '/mist_sprayer.jpg', price: 250 },
+        { id: 33, name: 'Magic Bulb Humidifier', img: '/bulb_humidifier.jpg', price: 750 },
+      ],
+    },
     {
       name: 'Special Gift & Decor',
       products: [
@@ -111,7 +130,7 @@ export default function Home() {
 
       <header className="py-24 text-center border-b border-zinc-900 bg-zinc-950/50 relative z-10">
         <img src="/logo.jpg" className="h-40 w-40 mx-auto rounded-full border-4 border-orange-600 shadow-2xl mb-6 object-cover" />
-        <h1 className="text-4xl font-black uppercase tracking-tighter">TrendyCart BD</h1>
+        <h1 className="text-4xl font-black uppercase tracking-tighter text-orange-500">TrendyCart BD</h1>
         <p className="text-lg text-zinc-400 mt-2">আপনার সেটআপকে দিন এক প্রিমিয়াম ভাইব! ⚡</p>
       </header>
 
@@ -127,13 +146,13 @@ export default function Home() {
                     setSelectedProduct(p);
                     document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' });
                   }} 
-                  className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105' : 'border-zinc-800'}`}
+                  className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-orange-500/10 ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105' : 'border-zinc-800'}`}
                 >
                   <div className="aspect-square rounded-2xl overflow-hidden bg-black mb-4">
-                    <img src={p.img} className="w-full h-full object-contain p-2" alt={p.name} />
+                    <img src={p.img} className="w-full h-full object-contain p-2 transition-transform duration-500 hover:scale-110" alt={p.name} />
                   </div>
-                  <h3 className="font-bold text-center h-12 flex items-center justify-center text-sm md:text-base">{p.name}</h3>
-                  <p className="text-orange-500 text-center font-black text-xl">৳ {p.price}</p>
+                  <h3 className="font-bold text-center h-12 flex items-center justify-center text-sm md:text-base leading-tight px-2">{p.name}</h3>
+                  <p className="text-orange-500 text-center font-black text-xl mt-2">৳ {p.price}</p>
                 </div>
               ))}
             </div>
@@ -144,11 +163,11 @@ export default function Home() {
       <section id="checkout" className="bg-zinc-900/50 py-20 px-6 relative z-10">
         <div className="max-w-xl mx-auto bg-black p-10 rounded-[40px] border border-zinc-800 shadow-2xl relative">
           <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[50vh] opacity-10 pointer-events-none" />
-          <h2 className="text-3xl font-black text-center mb-8 relative z-10">চেকআউট 🛒</h2>
+          <h2 className="text-3xl font-black text-center mb-8 relative z-10 text-orange-500">চেকআউট 🛒</h2>
           <form onSubmit={handleOrder} className="space-y-6 relative z-10">
             <input name="name" type="text" placeholder="পুরো নাম" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 outline-none focus:border-orange-500 transition-all" required />
             <input name="phone" type="tel" placeholder="ফোন নম্বর" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 outline-none focus:border-orange-500 transition-all" required />
-            <textarea name="address" placeholder="বিস্তারিত ঠিকানা" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 h-32 outline-none focus:border-orange-500 transition-all" required></textarea>
+            <textarea name="address" placeholder="বিস্তারিত ঠিকানা (থানা ও জেলাসহ)" className="w-full p-5 rounded-2xl bg-zinc-900 border border-zinc-800 h-32 outline-none focus:border-orange-500 transition-all" required></textarea>
             
             <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 flex gap-4">
               <label className="flex-1 flex items-center gap-2 cursor-pointer font-bold transition-colors hover:text-orange-500">
@@ -175,15 +194,10 @@ export default function Home() {
       </section>
 
       <footer className="py-12 text-center text-zinc-600 border-t border-zinc-900">
-        <p>© 2026 TrendyCart BD - Premium Decor</p>
+        <p>© 2026 TrendyCart BD - Premium Decor & Gadgets</p>
       </footer>
 
-      {/* WhatsApp Floating Button */}
-      <a 
-        href={`https://wa.me/${whatsappNumber}`} 
-        target="_blank" 
-        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition-transform"
-      >
+      <a href={`https://wa.me/${whatsappNumber}`} target="_blank" className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition-transform">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-8 h-8" alt="WhatsApp" />
       </a>
     </main>
