@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TechnoMart BD",
+  title: "TrendyCart BD",
   description: "Premium Decor Signs",
 };
 
