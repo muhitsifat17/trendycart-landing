@@ -22,22 +22,26 @@ export default function Home() {
         { id: 26, name: 'Boya Wireless Mic Box', img: '/Boya Wireless Mic Box.jpg', price: 499 },
         { id: 27, name: 'Bulb Humidifier Lamp Shade', img: '/Bulb Humidifier Lamp Shade550tk.png', price: 550 },
         { id: 28, name: 'Car Home Humidifier USB', img: '/Car Home Humidifier USB.jpg', price: 750 },
+        { id: 29, name: 'Handheld Portable Desktop Table', img: '/Handheld Portable Desktop Table450tk.jpg', price: 450 },
         { id: 30, name: 'Anti Snoring Device', img: '/High Quality 2 in 1 Sleeping Anti Snoring Air Purifier Device 300.jpg', price: 300 },
         { id: 31, name: 'LED Thermal Flask Indicator', img: '/LED Thermal Flask Indicator.jpg', price: 850 },
+        { id: 32, name: 'Mini Air Humidifier Aroma', img: '/Mini Air Humidifier Aroma Essential Oil Diffuser 250TK Lamp.png', price: 250 },
         { id: 33, name: 'Notebook Stand Metal', img: '/Notebook Stand Metal.jpg', price: 500 },
         { id: 34, name: 'Panda Humidifier', img: '/panda humidifier 350tk.png', price: 350 },
+        { id: 35, name: 'Stylish Mini Umbrella', img: '/Stylish Mini Umbrella.jpg', price: 900 },
+        { id: 36, name: 'USB Mosquito Killer Lamp', img: '/USB Mosquito Killer Lamp.jpg', price: 599 },
         { id: 37, name: 'Boya M1 Mic Box', img: '/FB_IMG_1729532597687.jpg', price: 499 },
       ],
     },
     {
       name: 'Audio Gear',
       slug: 'audio-gear',
-      products: [], // ভবিষ্যতে এখানে হেডফোন/এয়ারফোন যোগ করবেন
+      products: [], 
     },
     {
       name: 'Fun & Games',
       slug: 'fun-and-games',
-      products: [], // ভবিষ্যতে এখানে খেলনা যোগ করবেন
+      products: [], 
     },
     {
       name: 'Special Gift & Decor',
@@ -45,7 +49,9 @@ export default function Home() {
       products: [
         { id: 14, name: 'Heart Shaped Gift Box', img: '/Heart Shaped Gift Box.jpg', price: 270 },
         { id: 15, name: 'Love Pearl Kit Set', img: '/love pearl kit Pearl Stone Locket Set.webp', price: 480 },
+        { id: 16, name: 'Love Pearl Box Pink', img: '/Love Pearl Box Pink.jpg', price: 720 },
         { id: 17, name: 'Wooden Swiss Bank', img: '/Wooden Swiss Bank.jpg', price: 499 },
+        { id: 18, name: 'Medicine Storage Box', img: '/Medicine Storage Box 4 layer.png', price: 550 },
         { id: 19, name: 'Kaba Bank Money Box', img: '/Kaba Bank, Omrah Bank.webp', price: 570 },
       ],
     },
@@ -54,7 +60,10 @@ export default function Home() {
       slug: 'anime-led-signs',
       products: [
         { id: 1, name: 'Dragon LED Sign', img: '/dragon.png', price: 1099 },
+        { id: 2, name: 'Batman Logo LED', img: '/batman.webp', price: 1199 },
         { id: 3, name: 'Sukuna LED Sign', img: '/sukuna.jpg', price: 1199 },
+        { id: 4, name: 'Spider-Man Sign', img: '/spiderman.png', price: 1149 },
+        { id: 5, name: 'Goku LED Sign', img: '/goku.png', price: 1149 },
       ],
     },
     {
@@ -62,7 +71,19 @@ export default function Home() {
       slug: 'moon-lamps',
       products: [
         { id: 6, name: 'Full Moon Lamp', img: '/fullmoon.jpg', price: 1099 },
+        { id: 7, name: 'Half Moon Crystal', img: '/halfmoon.webp', price: 999 },
+        { id: 8, name: 'Crystal Table Lamp', img: '/crystallamp.jpg', price: 1099 },
         { id: 13, name: 'Galaxy Crystal Ball', img: '/lamp.webp', price: 1299 }, 
+      ],
+    },
+    {
+      name: 'Cute & Decor Lights',
+      slug: 'cute-decor-lights',
+      products: [
+        { id: 9, name: 'Cute Panda Light', img: '/panda.webp', price: 299 },
+        { id: 10, name: 'Mushroom Light', img: '/mashroom.jpg', price: 299 },
+        { id: 11, name: 'Tree Fairy Light', img: '/tree.jpg', price: 1099 },
+        { id: 12, name: 'Dreamy Galaxy Projector', img: '/babylamp.webp', price: 1799 },
       ],
     },
   ];
