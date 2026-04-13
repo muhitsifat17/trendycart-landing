@@ -12,66 +12,57 @@ export default function Home() {
   const productCategories = [
     {
       name: 'Premium Gadgets',
+      slug: 'premium-gadgets',
       products: [
-        // স্পিকার স্ট্যান্ড ডিলিট করা হয়েছে এবং প্রথম ২টি নাম ছোট রাখা হয়েছে
         { id: 20, name: '3D Firework Led Bulb', img: '/bulb.jpg', price: 550 },
+        { id: 25, name: 'Neck Fan', img: '/Bladeless Neck Fan.jpg', price: 550 },
         { id: 22, name: '6 Fit Tripod Stand + 10″ Ring Light', img: '/tripod.jpg', price: 1150 },
-        
-        // বাকিগুলো আপনার ফোল্ডারের রিনেম করা নাম অনুযায়ী
         { id: 23, name: 'Air Humidifier Mini Night Light', img: '/Air Humidifier Mini Night Light.jpg', price: 700 },
         { id: 24, name: 'Awei P5K Powerbank', img: '/Awei P5K Powerbank.jpg', price: 850 },
-        { id: 25, name: 'Bladeless Neck Fan', img: '/Bladeless Neck Fan.jpg', price: 550 },
         { id: 26, name: 'Boya Wireless Mic Box', img: '/Boya Wireless Mic Box.jpg', price: 499 },
         { id: 27, name: 'Bulb Humidifier Lamp Shade', img: '/Bulb Humidifier Lamp Shade550tk.png', price: 550 },
         { id: 28, name: 'Car Home Humidifier USB', img: '/Car Home Humidifier USB.jpg', price: 750 },
-        { id: 29, name: 'Handheld Portable Desktop Table', img: '/Handheld Portable Desktop Table450tk.jpg', price: 450 },
-        { id: 30, name: 'Anti Snoring Air Purifier Device', img: '/High Quality 2 in 1 Sleeping Anti Snoring Air Purifier Device 300.jpg', price: 300 },
+        { id: 30, name: 'Anti Snoring Device', img: '/High Quality 2 in 1 Sleeping Anti Snoring Air Purifier Device 300.jpg', price: 300 },
         { id: 31, name: 'LED Thermal Flask Indicator', img: '/LED Thermal Flask Indicator.jpg', price: 850 },
-        { id: 32, name: 'Mini Air Humidifier Aroma', img: '/Mini Air Humidifier Aroma Essential Oil Diffuser 250TK Lamp.png', price: 250 },
         { id: 33, name: 'Notebook Stand Metal', img: '/Notebook Stand Metal.jpg', price: 500 },
         { id: 34, name: 'Panda Humidifier', img: '/panda humidifier 350tk.png', price: 350 },
-        { id: 35, name: 'Stylish Mini Umbrella', img: '/Stylish Mini Umbrella.jpg', price: 900 },
-        { id: 36, name: 'USB Mosquito Killer Lamp', img: '/USB Mosquito Killer Lamp.jpg', price: 599 },
         { id: 37, name: 'Boya M1 Mic Box', img: '/FB_IMG_1729532597687.jpg', price: 499 },
       ],
     },
     {
+      name: 'Audio Gear',
+      slug: 'audio-gear',
+      products: [], // ভবিষ্যতে এখানে হেডফোন/এয়ারফোন যোগ করবেন
+    },
+    {
+      name: 'Fun & Games',
+      slug: 'fun-and-games',
+      products: [], // ভবিষ্যতে এখানে খেলনা যোগ করবেন
+    },
+    {
       name: 'Special Gift & Decor',
+      slug: 'special-gift-decor',
       products: [
         { id: 14, name: 'Heart Shaped Gift Box', img: '/Heart Shaped Gift Box.jpg', price: 270 },
         { id: 15, name: 'Love Pearl Kit Set', img: '/love pearl kit Pearl Stone Locket Set.webp', price: 480 },
-        { id: 16, name: 'Love Pearl Box Pink', img: '/Love Pearl Box Pink.jpg', price: 720 },
         { id: 17, name: 'Wooden Swiss Bank', img: '/Wooden Swiss Bank.jpg', price: 499 },
-        { id: 18, name: 'Medicine Storage Box', img: '/Medicine Storage Box 4 layer.png', price: 550 },
         { id: 19, name: 'Kaba Bank Money Box', img: '/Kaba Bank, Omrah Bank.webp', price: 570 },
       ],
     },
     {
       name: 'Anime LED Signs',
+      slug: 'anime-led-signs',
       products: [
         { id: 1, name: 'Dragon LED Sign', img: '/dragon.png', price: 1099 },
-        { id: 2, name: 'Batman Logo LED', img: '/batman.webp', price: 1199 },
         { id: 3, name: 'Sukuna LED Sign', img: '/sukuna.jpg', price: 1199 },
-        { id: 4, name: 'Spider-Man Sign', img: '/spiderman.png', price: 1149 },
-        { id: 5, name: 'Goku LED Sign', img: '/goku.png', price: 1149 },
       ],
     },
     {
       name: 'Ambient Moon Lamps',
+      slug: 'moon-lamps',
       products: [
         { id: 6, name: 'Full Moon Lamp', img: '/fullmoon.jpg', price: 1099 },
-        { id: 7, name: 'Half Moon Crystal', img: '/halfmoon.webp', price: 999 },
-        { id: 8, name: 'Crystal Table Lamp', img: '/crystallamp.jpg', price: 1099 },
         { id: 13, name: 'Galaxy Crystal Ball', img: '/lamp.webp', price: 1299 }, 
-      ],
-    },
-    {
-      name: 'Cute & Decor Lights',
-      products: [
-        { id: 9, name: 'Cute Panda Light', img: '/panda.webp', price: 299 },
-        { id: 10, name: 'Mushroom Light', img: '/mashroom.jpg', price: 299 },
-        { id: 11, name: 'Tree Fairy Light', img: '/tree.jpg', price: 1099 },
-        { id: 12, name: 'Dreamy Galaxy Projector', img: '/babylamp.webp', price: 1799 },
       ],
     },
   ];
@@ -142,25 +133,31 @@ export default function Home() {
       <section className="max-w-7xl mx-auto py-16 px-6 relative z-10">
         {productCategories.map((cat) => (
           <div key={cat.name} className="mb-20">
-            <h2 className="text-3xl font-bold text-orange-500 mb-10 border-l-8 border-orange-600 pl-4">{cat.name}</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {cat.products.map((p) => (
-                <div 
-                  key={p.id} 
-                  onClick={() => {
-                    setSelectedProduct(p);
-                    document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' });
-                  }} 
-                  className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-orange-500/10 ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105 shadow-2xl shadow-orange-500/20' : 'border-zinc-800'}`}
-                >
-                  <div className="aspect-square rounded-2xl overflow-hidden bg-black mb-4">
-                    <img src={p.img} className="w-full h-full object-contain p-2 hover:scale-110 transition-transform duration-500" alt={p.name} />
+            <h2 className="text-3xl font-bold text-orange-500 mb-10 border-l-8 border-orange-600 pl-4 cursor-pointer hover:text-white transition-colors">
+              {cat.name}
+            </h2>
+            {cat.products.length > 0 ? (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                {cat.products.map((p) => (
+                  <div 
+                    key={p.id} 
+                    onClick={() => {
+                      setSelectedProduct(p);
+                      document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' });
+                    }} 
+                    className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-orange-500/10 ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105 shadow-2xl shadow-orange-500/20' : 'border-zinc-800'}`}
+                  >
+                    <div className="aspect-square rounded-2xl overflow-hidden bg-black mb-4">
+                      <img src={p.img} className="w-full h-full object-contain p-2 hover:scale-110 transition-transform duration-500" alt={p.name} />
+                    </div>
+                    <h3 className="font-bold text-center h-12 flex items-center justify-center text-sm md:text-base leading-tight px-2">{p.name}</h3>
+                    <p className="text-orange-500 text-center font-black text-xl mt-2">৳ {p.price}</p>
                   </div>
-                  <h3 className="font-bold text-center h-12 flex items-center justify-center text-sm md:text-base leading-tight px-2">{p.name}</h3>
-                  <p className="text-orange-500 text-center font-black text-xl mt-2">৳ {p.price}</p>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-zinc-500 italic">এই ক্যাটাগরিতে নতুন প্রোডাক্ট শীঘ্রই আসছে... ⏳</p>
+            )}
           </div>
         ))}
       </section>
