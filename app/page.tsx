@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link'; // লিঙ্ক ইমপোর্ট করা হলো
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -154,9 +155,13 @@ export default function Home() {
       <section className="max-w-7xl mx-auto py-16 px-6 relative z-10">
         {productCategories.map((cat) => (
           <div key={cat.name} className="mb-20">
-            <h2 className="text-3xl font-bold text-orange-500 mb-10 border-l-8 border-orange-600 pl-4 cursor-pointer hover:text-white transition-colors">
-              {cat.name}
-            </h2>
+            {/* ক্যাটাগরি লিঙ্ক অ্যাড করা হয়েছে */}
+            <Link href={`/category/${cat.slug}`}>
+              <h2 className="text-3xl font-bold text-orange-500 mb-10 border-l-8 border-orange-600 pl-4 cursor-pointer hover:text-white transition-colors inline-block">
+                {cat.name}
+              </h2>
+            </Link>
+            
             {cat.products.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {cat.products.map((p) => (
@@ -183,6 +188,7 @@ export default function Home() {
         ))}
       </section>
 
+      {/* বাকি চেকআউট এবং ফুটার অংশ অপরিবর্তিত আছে */}
       <section id="checkout" className="bg-zinc-900/50 py-20 px-6 relative z-10">
         <div className="max-w-xl mx-auto bg-black p-10 rounded-[40px] border border-zinc-800 shadow-2xl relative">
           <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[50vh] opacity-10 pointer-events-none" />
