@@ -23,38 +23,26 @@ export default function Home() {
         { id: 26, name: 'Boya Wireless Mic Box', img: '/Boya Wireless Mic Box.jpg', price: 499 },
         { id: 27, name: 'Bulb Humidifier Lamp Shade', img: '/Bulb Humidifier Lamp Shade550tk.png', price: 550 },
         { id: 28, name: 'Car Home Humidifier USB', img: '/Car Home Humidifier USB.jpg', price: 750 },
-        { id: 29, name: 'Handheld Portable Desktop Table', img: '/Handheld Portable Desktop Table450tk.jpg', price: 450 },
         { id: 30, name: 'Anti Snoring Device', img: '/High Quality 2 in 1 Sleeping Anti Snoring Air Purifier Device 300.jpg', price: 300 },
         { id: 31, name: 'LED Thermal Flask Indicator', img: '/LED Thermal Flask Indicator.jpg', price: 850 },
-        { id: 32, name: 'Mini Air Humidifier Aroma', img: '/Mini Air Humidifier Aroma Essential Oil Diffuser 250TK Lamp.png', price: 250 },
         { id: 33, name: 'Notebook Stand Metal', img: '/Notebook Stand Metal.jpg', price: 500 },
         { id: 34, name: 'Panda Humidifier', img: '/panda humidifier 350tk.png', price: 350 },
-        { id: 35, name: 'Stylish Mini Umbrella', img: '/Stylish Mini Umbrella.jpg', price: 900 },
-        { id: 36, name: 'USB Mosquito Killer Lamp', img: '/USB Mosquito Killer Lamp.jpg', price: 599 },
         { id: 37, name: 'Boya M1 Mic Box', img: '/FB_IMG_1729532597687.jpg', price: 499 },
       ],
-    },
-    {
-      name: 'Smart Gadgets',
-      slug: 'smart-gadgets',
-      products: [
-        { id: 101, name: 'Premium Wireless Headphone', img: '/audio_gear.jpg', price: 1250 },
-        { id: 201, name: 'Handheld Game Console', img: '/game.jpg', price: 950 },
-      ], 
     },
     {
       name: 'Fun & Games',
       slug: 'fun-and-games',
       products: [
-        { id: 102, name: '8.5 Inch Colorful LCD Writing Tablet', img: '/8.5 Inch Colorful LCD Writing Table.jpg', price: 399 },
-        { id: 103, name: 'Dancing Cactus Toy', img: '/Dancing Cactus Toy.jpg', price: 550 },
-        { id: 104, name: 'Fishing Game', img: '/Fishing game.jpg', price: 450 },
-        { id: 105, name: 'Kid Tent House', img: '/kid tent House.jpg', price: 999 },
-        { id: 106, name: 'Magic Sylhet Drawing Board', img: '/Magic sylhet.jpg', price: 200 },
-        { id: 107, name: 'Pyramid Stacking Toy', img: '/pyramid toy.jpg', price: 200 },
-        { id: 108, name: 'Remote Control Helicopter', img: '/Remot control helicopter.jpg', price: 399 },
-        { id: 109, name: 'Spider Man Car-Styling Toy', img: '/Spider Man Car-Styling Toy.jpg', price: 599 },
-        { id: 110, name: 'Strong Baby Car', img: '/strong-baby-car.jpg', price: 699 },
+        { id: 101, name: 'Dancing Cactus Toy', img: '/Dancing Cactus Toy.jpg', price: 550 },
+        { id: 102, name: 'Fishing Game', img: '/Fishing game.jpeg', price: 450 },
+        { id: 103, name: 'Magic Sylhet Drawing Board', img: '/Magic sylhet.jpg', price: 200 },
+        { id: 104, name: 'Pyramid Stacking Toy', img: '/pyramid toy.jpg', price: 200 },
+        { id: 105, name: 'Spider Man Car-Styling Toy', img: '/Spider Man Car-Styling Toy.jpg', price: 599 },
+        { id: 106, name: 'Remote Control Helicopter', img: '/Remot control helicopter.jpg', price: 399 },
+        { id: 107, name: 'Kid Tent House', img: '/kid tent House.jpeg', price: 999 },
+        { id: 108, name: 'Strong Baby Car', img: '/strong-baby-car.webp', price: 699 },
+        { id: 109, name: '8.5 Inch Colorful LCD Writing Tablet', img: '/8.5 Inch Colorful LCD Writing Table.jpg', price: 399 },
       ], 
     },
     {
@@ -174,28 +162,24 @@ export default function Home() {
               </h2>
             </Link>
             
-            {cat.products.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                {cat.products.map((p) => (
-                  <div 
-                    key={p.id} 
-                    onClick={() => {
-                      setSelectedProduct(p);
-                      document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' });
-                    }} 
-                    className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-orange-500/10 ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105 shadow-2xl shadow-orange-500/20' : 'border-zinc-800'}`}
-                  >
-                    <div className="aspect-square rounded-2xl overflow-hidden bg-black mb-4">
-                      <img src={p.img} className="w-full h-full object-contain p-2 hover:scale-110 transition-transform duration-500" alt={p.name} />
-                    </div>
-                    <h3 className="font-bold text-center h-12 flex items-center justify-center text-sm md:text-base leading-tight px-2">{p.name}</h3>
-                    <p className="text-orange-500 text-center font-black text-xl mt-2">৳ {p.price}</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              {cat.products.map((p) => (
+                <div 
+                  key={p.id} 
+                  onClick={() => {
+                    setSelectedProduct(p);
+                    document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' });
+                  }} 
+                  className={`bg-zinc-900 p-4 rounded-[32px] border-2 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-orange-500/10 ${selectedProduct?.id === p.id ? 'border-orange-500 scale-105 shadow-2xl shadow-orange-500/20' : 'border-zinc-800'}`}
+                >
+                  <div className="aspect-square rounded-2xl overflow-hidden bg-black mb-4">
+                    <img src={p.img} className="w-full h-full object-contain p-2 hover:scale-110 transition-transform duration-500" alt={p.name} />
                   </div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-zinc-500 italic">এই ক্যাটাগরিতে নতুন প্রোডাক্ট শীঘ্রই আসছে... ⏳</p>
-            )}
+                  <h3 className="font-bold text-center h-12 flex items-center justify-center text-sm md:text-base leading-tight px-2">{p.name}</h3>
+                  <p className="text-orange-500 text-center font-black text-xl mt-2">৳ {p.price}</p>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </section>
