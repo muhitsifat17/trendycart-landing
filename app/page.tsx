@@ -46,6 +46,13 @@ export default function Home() {
       ], 
     },
     {
+      name: 'Audio Gear',
+      slug: 'audio-gear',
+      products: [
+        { id: 200, name: 'Customized Water Flask', img: '/LED Thermal Flask with Temperature Indica...', price: 850 },
+      ], 
+    },
+    {
       name: 'Special Gift & Decor',
       slug: 'special-gift-decor',
       products: [
