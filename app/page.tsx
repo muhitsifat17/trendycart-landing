@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import Link from 'next/link'; // লিঙ্ক ইমপোর্ট করা হলো
+import Link from 'next/link';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -35,14 +35,27 @@ export default function Home() {
       ],
     },
     {
-      name: 'Audio Gear',
-      slug: 'audio-gear',
-      products: [], 
+      name: 'Smart Gadgets',
+      slug: 'smart-gadgets',
+      products: [
+        { id: 101, name: 'Premium Wireless Headphone', img: '/audio_gear.jpg', price: 1250 },
+        { id: 201, name: 'Handheld Game Console', img: '/game.jpg', price: 950 },
+      ], 
     },
     {
       name: 'Fun & Games',
       slug: 'fun-and-games',
-      products: [], 
+      products: [
+        { id: 102, name: '8.5 Inch Colorful LCD Writing Tablet', img: '/8.5 Inch Colorful LCD Writing Table.jpg', price: 399 },
+        { id: 103, name: 'Dancing Cactus Toy', img: '/Dancing Cactus Toy.jpg', price: 550 },
+        { id: 104, name: 'Fishing Game', img: '/Fishing game.jpg', price: 450 },
+        { id: 105, name: 'Kid Tent House', img: '/kid tent House.jpg', price: 999 },
+        { id: 106, name: 'Magic Sylhet Drawing Board', img: '/Magic sylhet.jpg', price: 200 },
+        { id: 107, name: 'Pyramid Stacking Toy', img: '/pyramid toy.jpg', price: 200 },
+        { id: 108, name: 'Remote Control Helicopter', img: '/Remot control helicopter.jpg', price: 399 },
+        { id: 109, name: 'Spider Man Car-Styling Toy', img: '/Spider Man Car-Styling Toy.jpg', price: 599 },
+        { id: 110, name: 'Strong Baby Car', img: '/strong-baby-car.jpg', price: 699 },
+      ], 
     },
     {
       name: 'Special Gift & Decor',
@@ -155,7 +168,6 @@ export default function Home() {
       <section className="max-w-7xl mx-auto py-16 px-6 relative z-10">
         {productCategories.map((cat) => (
           <div key={cat.name} className="mb-20">
-            {/* ক্যাটাগরি লিঙ্ক অ্যাড করা হয়েছে */}
             <Link href={`/category/${cat.slug}`}>
               <h2 className="text-3xl font-bold text-orange-500 mb-10 border-l-8 border-orange-600 pl-4 cursor-pointer hover:text-white transition-colors inline-block">
                 {cat.name}
@@ -188,7 +200,6 @@ export default function Home() {
         ))}
       </section>
 
-      {/* বাকি চেকআউট এবং ফুটার অংশ অপরিবর্তিত আছে */}
       <section id="checkout" className="bg-zinc-900/50 py-20 px-6 relative z-10">
         <div className="max-w-xl mx-auto bg-black p-10 rounded-[40px] border border-zinc-800 shadow-2xl relative">
           <img src="/logo.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[50vh] opacity-10 pointer-events-none" />
